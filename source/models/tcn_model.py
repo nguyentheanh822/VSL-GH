@@ -201,3 +201,96 @@ class TCNSLTModel(nn.Module):
             if finished.all():
                 break
         return ys[:, 1:]
+
+    @torch.no_grad()
+    def beam_search_decode(
+        self,
+        src,
+        src_mask,
+        bos_idx: int,
+        eos_idx: int,
+        beam_size: int = 4,
+        max_len: int = 50,
+        length_penalty: float = 0.6,
+    ):
+        """Beam search decoding with length penalty."""
+        device = src.device
+        if self.is_multi_view:
+            src_f = torch.cat([src[:, :, :411], src[:, :, 822:1233]], dim=-1)
+            src_s = torch.cat([src[:, :, 411:822], src[:, :, 1233:1644]], dim=-1)
+            emb_f = self.input_proj(src_f)
+            emb_s = self.input_proj(src_s)
+            src_emb = self.fusion_proj(torch.cat([emb_f, emb_s], dim=-1))
+        else:
+            src_emb = self.input_proj(src)
+        memory = self.encoder(src_emb.permute(0, 2, 1)).permute(0, 2, 1)
+
+        B = src.size(0)
+        results = []
+
+        for b in range(B):
+            mem_b = memory[b : b + 1]
+            src_mask_b = src_mask[b : b + 1] if src_mask is not None else None
+            beams = [(0.0, [bos_idx])]
+            completed = []
+
+            for _ in range(max_len):
+                if not beams:
+                    break
+                tgt_batch = torch.tensor([seq for _, seq in beams], dtype=torch.long, device=device)
+                num_beams = len(beams)
+                mem_exp = mem_b.expand(num_beams, -1, -1)
+                mask_exp = src_mask_b.expand(num_beams, -1) if src_mask_b is not None else None
+
+                tgt_emb = self.pos_encoder(self.tgt_emb(tgt_batch))
+                tgt_causal_mask = self.generate_square_subsequent_mask(tgt_batch.size(1)).to(device)
+                outs = self.decoder(
+                    tgt_emb,
+                    mem_exp,
+                    tgt_mask=tgt_causal_mask,
+                    memory_mask=None,
+                    tgt_key_padding_mask=None,
+                    memory_key_padding_mask=mask_exp,
+                )
+                logits = self.output_proj(outs[:, -1])
+                log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
+
+                V = log_probs.size(-1)
+                top_k = min(beam_size * 2, V)
+                new_beams = []
+                for i, (score, seq) in enumerate(beams):
+                    topk_lp, topk_ids = log_probs[i].topk(top_k)
+                    for lp, tok in zip(topk_lp.tolist(), topk_ids.tolist()):
+                        new_score = score + lp
+                        new_seq = seq + [tok]
+                        if tok == eos_idx:
+                            lp_factor = ((5 + len(new_seq)) / 6.0) ** length_penalty
+                            completed.append((new_score / lp_factor, new_seq))
+                        else:
+                            new_beams.append((new_score, new_seq))
+
+                new_beams.sort(key=lambda x: x[0], reverse=True)
+                beams = new_beams[:beam_size]
+                if len(completed) >= beam_size:
+                    break
+
+            if not completed:
+                for score, seq in beams:
+                    lp_factor = ((5 + len(seq)) / 6.0) ** length_penalty
+                    completed.append((score / lp_factor, seq))
+
+            completed.sort(key=lambda x: x[0], reverse=True)
+            best_seq = completed[0][1]
+            if best_seq and best_seq[0] == bos_idx:
+                best_seq = best_seq[1:]
+            if best_seq and best_seq[-1] == eos_idx:
+                best_seq = best_seq[:-1]
+            results.append(best_seq)
+
+        max_out_len = max((len(s) for s in results), default=1)
+        output = torch.zeros(B, max_out_len, dtype=torch.long, device=device)
+        for i, seq in enumerate(results):
+            if seq:
+                t = torch.tensor(seq[:max_out_len], dtype=torch.long, device=device)
+                output[i, : len(t)] = t
+        return output
