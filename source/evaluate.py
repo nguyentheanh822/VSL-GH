@@ -48,7 +48,7 @@ def main():
                         help="Length penalty alpha for beam search (0=none, 0.6=default)")
     parser.add_argument("--base_dir", default=None, help="Optional base_dir override")
     parser.add_argument("--gloss_vocab", default=None, help="Optional gloss_vocab override")
-    parser.add_argument("--fix_gloss_align", action="store_true")
+    parser.add_argument("--fix_gloss_align", action="store_true", default=True)
     args = parser.parse_args()
 
     cfg = load_config(args.config)

@@ -171,7 +171,9 @@ def main():
     parser.add_argument("--save_dir", default=None, help="Optional save_dir override")
     parser.add_argument("--base_dir", default=None, help="Optional base_dir override")
     parser.add_argument("--gloss_vocab", default=None, help="Optional gloss_vocab override")
-    parser.add_argument("--fix_gloss_align", action="store_true", help="Align frame gloss labels with temporal speed augmentation")
+    parser.add_argument("--init_from", default=None, help="Path to pretrained checkpoint (loads model weights only for fine-tuning)")
+    parser.add_argument("--dataset_json", default=None, help="Optional dataset_json override")
+    parser.add_argument("--fix_gloss_align", action="store_true", default=True, help="Align frame gloss labels with temporal speed augmentation")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -179,6 +181,8 @@ def main():
         cfg["training"]["seed"] = args.seed
     if args.save_dir is not None:
         cfg["training"]["save_dir"] = args.save_dir
+    if args.dataset_json is not None:
+        cfg["data"]["dataset_json"] = args.dataset_json
     if args.base_dir is not None:
         cfg["data"]["base_dir"] = args.base_dir
     if args.gloss_vocab is not None:
@@ -400,7 +404,12 @@ def main():
     best_bleu = 0.0
     patience_count = 0
 
-    if args.resume and Path(args.resume).exists():
+    if args.init_from and Path(args.init_from).exists():
+        ckpt = torch.load(args.init_from, map_location=device)
+        model_state = ckpt.get("model_state", ckpt)
+        missing, unexpected = model.load_state_dict(model_state, strict=False)
+        print(f"Initialized model weights from {args.init_from} (missing={len(missing)}, unexpected={len(unexpected)})")
+    elif args.resume and Path(args.resume).exists():
         ckpt = torch.load(args.resume, map_location=device)
         model_state = ckpt.get("model_state", ckpt)
         model.load_state_dict(model_state, strict=False)

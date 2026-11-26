@@ -12,6 +12,7 @@ env/
 data/keypoints/
 data/annotations/
 data/videos/
+data/dataset_synthetic_5x.json
 *.npy
 *.mp4
 *.avi

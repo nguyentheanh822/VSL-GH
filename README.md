@@ -69,7 +69,8 @@ VSL-GH/
 │   ├── table6_architecture/   # Table 6: TCN, Conformer, Mamba, Transformer, ST-GCN
 │   ├── table7a_supervision/   # Table 7a: Supervised Frame CE, Gloss-Free, CTC+Sup, CTC Only
 │   ├── table7b_ablation/      # Table 7b: w/o Velocity, w/o Face, Multi-view (Front + Side)
-│   └── table8_loso/           # Table 8: 6-Fold Leave-One-Subject-Out (S01–S06)
+│   ├── table8_loso/           # Table 8: 6-Fold Leave-One-Subject-Out (S01–S06)
+│   └── table10_synthetic_scaling/ # Table 10: Synthetic 5× Pre-training + Fine-tuning
 ├── data/
 │   ├── README.md              # Expected layout for external keypoints & annotations
 │   ├── dataset.json           # Metadata with frame-aligned gloss boundaries (4,200 clips)
@@ -78,7 +79,8 @@ VSL-GH/
 │   ├── trans_vocab.txt        # Vietnamese translation vocabulary
 │   └── splits/                # Signer-independent split lists (S01–S04 / S05 / S06)
 ├── scripts/
-│   └── run_benchmark.py       # Multi-seed training & evaluation runner
+│   ├── run_benchmark.py       # Multi-seed runner for Tables 6, 7, and 8
+│   └── run_synthetic_scaling.py # Synthetic 5× scaling + fine-tuning runner (Table 10)
 ├── source/
 │   ├── data/dataset.py        # Keypoint normalization, velocity computation & augmentation
 │   ├── models/                # TCN, Conformer, Mamba, Transformer, ST-GCN + 6-layer Decoder
@@ -135,6 +137,9 @@ python scripts/run_benchmark.py --suite table7 --gpu 0 --seeds 42 43 44 45 46
 
 # Table 8: 6-Fold Leave-One-Subject-Out (LOSO) Cross-Validation
 python scripts/run_benchmark.py --suite table8 --gpu 0 --seeds 42 43 44 45 46
+
+# Table 10: Synthetic 5x Data Scaling (offline 5x on S01-S04) + Fine-tuning (beam=4)
+python scripts/run_synthetic_scaling.py --gpu 0 --seeds 42 43 44 45 46
 ```
 
 ---
