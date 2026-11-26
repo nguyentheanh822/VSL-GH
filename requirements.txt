@@ -1,0 +1,13 @@
+# Core training & evaluation dependencies
+torch>=2.1.0
+torchaudio>=2.1.0
+numpy>=1.24.0
+pyyaml>=6.0
+sacrebleu>=2.3.0
+rouge-score>=0.1.2
+tqdm>=4.65.0
+
+# Optional: only required for extracting keypoints from raw videos (source/extract_keypoints.py)
+# mediapipe==0.10.14
+# opencv-python>=4.8.0
+# pandas>=2.0.0

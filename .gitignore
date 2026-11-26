@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Heavy dataset media & keypoints (hosted externally)
+data/keypoints/
+data/annotations/
+data/videos/
+*.npy
+*.mp4
+*.avi
+*.mov
+
+# Training artifacts & checkpoints
+results/
+checkpoints/
+logs/
+*.pt
+*.pth
+*.ckpt
+*.log
+wandb/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
