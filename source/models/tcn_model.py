@@ -213,7 +213,7 @@ class TCNSLTModel(nn.Module):
         max_len: int = 50,
         length_penalty: float = 0.6,
     ):
-        """Beam search decoding with length penalty."""
+        """Standard beam search decoding with Wu et al. length penalty."""
         device = src.device
         if self.is_multi_view:
             src_f = torch.cat([src[:, :, :411], src[:, :, 822:1233]], dim=-1)
@@ -256,28 +256,30 @@ class TCNSLTModel(nn.Module):
                 log_probs = torch.nn.functional.log_softmax(logits, dim=-1)
 
                 V = log_probs.size(-1)
-                top_k = min(beam_size * 2, V)
-                new_beams = []
+                top_k = min(beam_size, V)
+                candidates = []
                 for i, (score, seq) in enumerate(beams):
                     topk_lp, topk_ids = log_probs[i].topk(top_k)
                     for lp, tok in zip(topk_lp.tolist(), topk_ids.tolist()):
-                        new_score = score + lp
-                        new_seq = seq + [tok]
-                        if tok == eos_idx:
-                            lp_factor = ((5 + len(new_seq)) / 6.0) ** length_penalty
-                            completed.append((new_score / lp_factor, new_seq))
-                        else:
-                            new_beams.append((new_score, new_seq))
+                        candidates.append((score + lp, seq + [tok]))
 
-                new_beams.sort(key=lambda x: x[0], reverse=True)
-                beams = new_beams[:beam_size]
-                if len(completed) >= beam_size:
+                # Rank ALL candidates globally and keep only top beam_size
+                candidates.sort(key=lambda x: x[0], reverse=True)
+                next_beams = []
+                for cand_score, cand_seq in candidates[:beam_size]:
+                    if cand_seq[-1] == eos_idx:
+                        lp_factor = ((5.0 + len(cand_seq)) / 6.0) ** length_penalty
+                        completed.append((cand_score / lp_factor, cand_seq))
+                    else:
+                        next_beams.append((cand_score, cand_seq))
+
+                beams = next_beams
+                if not beams:
                     break
 
-            if not completed:
-                for score, seq in beams:
-                    lp_factor = ((5 + len(seq)) / 6.0) ** length_penalty
-                    completed.append((score / lp_factor, seq))
+            for score, seq in beams:
+                lp_factor = ((5.0 + len(seq)) / 6.0) ** length_penalty
+                completed.append((score / lp_factor, seq))
 
             completed.sort(key=lambda x: x[0], reverse=True)
             best_seq = completed[0][1]
