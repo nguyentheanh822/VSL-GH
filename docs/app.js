@@ -156,9 +156,13 @@
 
     // Videos
     const vf = document.getElementById("video-front");
+    const vs = document.getElementById("video-side");
     vf.src = sample.video_front;
+    vs.src = sample.video_side;
     vf.playbackRate = state.speed;
+    vs.playbackRate = state.speed;
     vf.load();
+    vs.load();
 
     // ELAN timeline
     renderTimeline(sample);
@@ -251,12 +255,16 @@
 
   function playBoth() {
     const vf = document.getElementById("video-front");
+    const vs = document.getElementById("video-side");
     if (!vf.src) return;
     if (vf.ended) {
       vf.currentTime = 0;
+      vs.currentTime = 0;
     }
     vf.playbackRate = state.speed;
+    vs.playbackRate = state.speed;
     vf.play().catch(() => {});
+    vs.play().catch(() => {});
     state.playing = true;
     document.getElementById("btn-play").textContent = "❚❚ Tạm dừng";
     startSyncLoop();
@@ -264,7 +272,9 @@
 
   function pauseBoth() {
     const vf = document.getElementById("video-front");
+    const vs = document.getElementById("video-side");
     vf.pause();
+    vs.pause();
     state.playing = false;
     document.getElementById("btn-play").textContent = "▶ Phát đồng bộ";
     if (state.rafId !== null) {
@@ -275,19 +285,29 @@
 
   function seekBoth(sec) {
     const vf = document.getElementById("video-front");
+    const vs = document.getElementById("video-side");
     const dur = getDuration();
     const clamped = Math.max(0, Math.min(dur, sec));
     vf.currentTime = clamped;
+    if (Number.isFinite(vs.duration)) {
+      vs.currentTime = Math.min(vs.duration, clamped);
+    } else {
+      vs.currentTime = clamped;
+    }
     updateVisualsAtTime(clamped);
   }
 
   function startSyncLoop() {
     if (state.rafId !== null) cancelAnimationFrame(state.rafId);
     const vf = document.getElementById("video-front");
+    const vs = document.getElementById("video-side");
 
     function tick() {
       if (!state.playing) return;
       const t = vf.currentTime || 0;
+      if (Number.isFinite(vs.duration) && Math.abs(vs.currentTime - t) > 0.12 && t < vs.duration) {
+        vs.currentTime = t;
+      }
       updateVisualsAtTime(t);
       if (vf.ended) {
         pauseBoth();
@@ -310,7 +330,9 @@
     if (playhead) playhead.style.left = (ratio * 100).toFixed(2) + "%";
 
     // Frame index
-    const framesArr = state.currentKeypoints ? state.currentKeypoints.front : null;
+    const framesArr = state.currentKeypoints
+      ? (state.skelView === "side" ? state.currentKeypoints.side : state.currentKeypoints.front)
+      : null;
     const totalFrames = framesArr ? framesArr.length : sample.num_frames;
     const frameIdx = Math.max(0, Math.min(totalFrames - 1, Math.floor(sec * 30)));
     document.getElementById("time-readout").textContent =
@@ -796,9 +818,24 @@
         state.speed = Number(btn.dataset.speed) || 1.0;
         document.querySelectorAll(".speed-btn").forEach((b) => b.classList.toggle("active", b === btn));
         document.getElementById("video-front").playbackRate = state.speed;
+        document.getElementById("video-side").playbackRate = state.speed;
       });
     });
 
+    const btnF = document.getElementById("btn-skel-front");
+    const btnS = document.getElementById("btn-skel-side");
+    btnF.addEventListener("click", () => {
+      state.skelView = "front";
+      btnF.classList.add("active");
+      btnS.classList.remove("active");
+      updateVisualsAtTime(document.getElementById("video-front").currentTime || 0);
+    });
+    btnS.addEventListener("click", () => {
+      state.skelView = "side";
+      btnS.classList.add("active");
+      btnF.classList.remove("active");
+      updateVisualsAtTime(document.getElementById("video-front").currentTime || 0);
+    });
 
     for (const [id, key] of [
       ["toggle-pose", "pose"],

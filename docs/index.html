@@ -36,7 +36,7 @@
         <div class="hero-badges">
           <span class="pill pill-teal">Bộ dữ liệu Ngôn ngữ Ký hiệu Việt Nam cấp độ Câu</span>
           <span class="pill pill-indigo">Biến thể TP. Hồ Chí Minh (HCMC)</span>
-          <span class="pill pill-slate">Đa góc quay (Frontal + 90° Lateral)</span>
+          <span class="pill pill-slate">Đa góc quay (Frontal + Lateral)</span>
         </div>
         <h1>VSL-GH: A Sentence-Level Vietnamese Sign Language Dataset for General Health Examination</h1>
         <p class="hero-subtitle">
@@ -57,7 +57,7 @@
           <div class="kpi-card">
             <div class="kpi-value">8,400</div>
             <div class="kpi-label">Video Studio (1080×1080, 30 fps)</div>
-            <div class="kpi-sub">4,200 góc thẳng + 4,200 góc nghiêng 90°</div>
+            <div class="kpi-sub">4,200 góc thẳng + 4,200 góc nghiêng</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-value">300</div>
@@ -90,7 +90,7 @@
           <div>
             <h2>Khám phá Mẫu Dữ liệu Đa phương thức (Multimodal Sample Explorer)</h2>
             <p>
-              Trình diễn đồng bộ <strong>Video góc thẳng (Frontal View) + Khung xương 137 điểm 3D trực tiếp + Dòng thời gian Gloss (ELAN)</strong>
+              Trình diễn đồng bộ <strong>Video góc thẳng + Video góc nghiêng + Khung xương 137 điểm 3D trực tiếp + Dòng thời gian Gloss (ELAN)</strong>
               trên 12 mẫu tiêu biểu phủ đủ 5 giai đoạn khám, cả 6 người ký hiệu (bao gồm S03 thuận tay trái, S05 Val, S06 Test) và các câu có biểu cảm phi thủ công (NMM).
             </p>
           </div>
@@ -148,7 +148,7 @@
             <div class="media-grid">
               <div class="media-box">
                 <div class="media-label">
-                  <span>Camera Thẳng (Frontal View • 0°)</span>
+                  <span>Camera Thẳng (Frontal View)</span>
                   <span class="media-badge" id="badge-front">1080p→480p • 30fps</span>
                 </div>
                 <div class="video-wrap">
@@ -158,8 +158,21 @@
 
               <div class="media-box">
                 <div class="media-label">
+                  <span>Camera Nghiêng (Lateral View)</span>
+                  <span class="media-badge">Đồng bộ thời gian</span>
+                </div>
+                <div class="video-wrap">
+                  <video id="video-side" playsinline muted preload="metadata"></video>
+                </div>
+              </div>
+
+              <div class="media-box">
+                <div class="media-label">
                   <span>Keypoints 3D MediaPipe (137 điểm)</span>
-                  <span class="media-badge">Frontal • 30fps</span>
+                  <div class="skel-view-toggle">
+                    <button type="button" class="mini-btn active" id="btn-skel-front">Góc thẳng</button>
+                    <button type="button" class="mini-btn" id="btn-skel-side">Góc nghiêng</button>
+                  </div>
                 </div>
                 <div class="canvas-wrap">
                   <canvas id="skeleton-canvas" width="480" height="480"></canvas>
@@ -253,7 +266,7 @@
           <div class="pipe-step">
             <div class="pipe-num">03</div>
             <h4>Ghi hình Studio Đa góc</h4>
-            <p>6 người Điếc (S01–S06) trong phòng phông xanh với 2 máy <strong>DJI Osmo Pocket 3</strong> (0° thẳng + 90° nghiêng), 1080×1080, 30 fps. 700/9,100 clip lỗi được loại & quay lại.</p>
+            <p>6 người Điếc (S01–S06) trong phòng phông xanh với 2 máy <strong>DJI Osmo Pocket 3</strong> (góc thẳng + góc nghiêng), 1080×1080, 30 fps. 700/9,100 clip lỗi được loại & quay lại.</p>
           </div>
           <div class="pipe-step">
             <div class="pipe-num">04</div>
