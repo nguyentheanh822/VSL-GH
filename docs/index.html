@@ -90,7 +90,7 @@
           <div>
             <h2>Khám phá Mẫu Dữ liệu Đa phương thức (Multimodal Sample Explorer)</h2>
             <p>
-              Trình diễn đồng bộ <strong>Video góc thẳng + Video góc nghiêng 90° + Khung xương 137 điểm 3D trực tiếp + Dòng thời gian Gloss (ELAN)</strong>
+              Trình diễn đồng bộ <strong>Video góc thẳng (Frontal View) + Khung xương 137 điểm 3D trực tiếp + Dòng thời gian Gloss (ELAN)</strong>
               trên 12 mẫu tiêu biểu phủ đủ 5 giai đoạn khám, cả 6 người ký hiệu (bao gồm S03 thuận tay trái, S05 Val, S06 Test) và các câu có biểu cảm phi thủ công (NMM).
             </p>
           </div>
@@ -158,21 +158,8 @@
 
               <div class="media-box">
                 <div class="media-label">
-                  <span>Camera Nghiêng (Lateral View • 90°)</span>
-                  <span class="media-badge">Đồng bộ thời gian</span>
-                </div>
-                <div class="video-wrap">
-                  <video id="video-side" playsinline muted preload="metadata"></video>
-                </div>
-              </div>
-
-              <div class="media-box">
-                <div class="media-label">
                   <span>Keypoints 3D MediaPipe (137 điểm)</span>
-                  <div class="skel-view-toggle">
-                    <button type="button" class="mini-btn active" id="btn-skel-front">Góc thẳng</button>
-                    <button type="button" class="mini-btn" id="btn-skel-side">Góc nghiêng</button>
-                  </div>
+                  <span class="media-badge">Frontal • 30fps</span>
                 </div>
                 <div class="canvas-wrap">
                   <canvas id="skeleton-canvas" width="480" height="480"></canvas>
