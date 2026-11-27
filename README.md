@@ -1,5 +1,7 @@
 # VSL-GH: A Sentence-Level Vietnamese Sign Language Dataset for General Health Examination
 
+**Interactive Dataset Showcase (Project Page):** https://nguyentheanh822.github.io/VSL-GH/
+
 Official source code and reproducible benchmark suite for the paper:
 
 > **VSL-GH: A Sentence-Level Vietnamese Sign Language Dataset for General Health Examination**  

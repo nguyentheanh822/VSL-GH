@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSL-GH — Tổng quan Bộ dữ liệu Ngôn ngữ Ký hiệu Việt Nam trong Khám sức khỏe Tổng quát</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-badge">VSL-GH</span>
+        <div class="brand-text">
+          <strong>VSL-GH Dataset Showcase</strong>
+          <span>HCMC Variant • General Health Examination</span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#overview">Tổng quan</a>
+        <a href="#explorer">Mẫu dữ liệu</a>
+        <a href="#pipeline">Quy trình</a>
+        <a href="#statistics">Thống kê</a>
+        <a href="#corpus">300 câu</a>
+        <a href="#benchmarks">Thực nghiệm</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO / OVERVIEW -->
+    <section id="overview" class="hero">
+      <div class="container">
+        <div class="hero-badges">
+          <span class="pill pill-teal">Bộ dữ liệu Ngôn ngữ Ký hiệu Việt Nam cấp độ Câu</span>
+          <span class="pill pill-indigo">Biến thể TP. Hồ Chí Minh (HCMC)</span>
+          <span class="pill pill-slate">Đa góc quay (Frontal + 90° Lateral)</span>
+        </div>
+        <h1>VSL-GH: A Sentence-Level Vietnamese Sign Language Dataset for General Health Examination</h1>
+        <p class="hero-subtitle">
+          Bộ dữ liệu ngôn ngữ ký hiệu Việt Nam liên tục cấp độ câu đầu tiên dành cho lĩnh vực
+          <strong>khám sức khỏe tổng quát</strong> (theo Thông tư 32/2023/TT-BYT), xây dựng cùng
+          <strong>Trung tâm Nghiên cứu Giáo dục Người Khiếm thính (CED)</strong> và đội ngũ bác sĩ
+          <strong>Bệnh viện Đa khoa Tân Hưng</strong>.
+        </p>
+        <div class="hero-author">
+          <span><strong>Tác giả:</strong> Thế Anh Nguyễn</span>
+          <span>•</span>
+          <span><strong>Đơn vị:</strong> The Saigon International University (SIU), TP. Hồ Chí Minh</span>
+          <span>•</span>
+          <span><strong>Mã nguồn:</strong> <a href="https://github.com/nguyentheanh822/VSL-GH" target="_blank" rel="noopener noreferrer">github.com/nguyentheanh822/VSL-GH</a></span>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-value">8,400</div>
+            <div class="kpi-label">Video Studio (1080×1080, 30 fps)</div>
+            <div class="kpi-sub">4,200 góc thẳng + 4,200 góc nghiêng 90°</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">300</div>
+            <div class="kpi-label">Câu giao tiếp Y tế</div>
+            <div class="kpi-sub">5 giai đoạn khám • 440 từ / 372 gloss duy nhất</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">6</div>
+            <div class="kpi-label">Người Điếc ký hiệu (S01–S06)</div>
+            <div class="kpi-sub">Chia tập độc lập người ký hiệu (0% chồng lấp)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">137</div>
+            <div class="kpi-label">Điểm mốc 3D / Frame</div>
+            <div class="kpi-sub">25 Pose + 70 Face + 42 Hands → 822 chiều (+Vận tốc)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-value">82.60</div>
+            <div class="kpi-label">Baseline TCN BLEU-4</div>
+            <div class="kpi-sub">12.3M params • 150 FPS • 84.75 với Scaling 5×</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE MULTIMODAL SAMPLE EXPLORER -->
+    <section id="explorer" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Khám phá Mẫu Dữ liệu Đa phương thức (Multimodal Sample Explorer)</h2>
+            <p>
+              Trình diễn đồng bộ <strong>Video góc thẳng + Video góc nghiêng 90° + Khung xương 137 điểm 3D trực tiếp + Dòng thời gian Gloss (ELAN)</strong>
+              trên 12 mẫu tiêu biểu phủ đủ 5 giai đoạn khám, cả 6 người ký hiệu (bao gồm S03 thuận tay trái, S05 Val, S06 Test) và các câu có biểu cảm phi thủ công (NMM).
+            </p>
+          </div>
+        </div>
+
+        <div class="filter-bar" id="sample-filters">
+          <div class="filter-group">
+            <label for="filter-phase">Giai đoạn khám:</label>
+            <select id="filter-phase">
+              <option value="all">Tất cả 5 giai đoạn</option>
+              <option value="1">1. Đăng ký khám (Registration)</option>
+              <option value="2">2. Khám thể lực (Physical)</option>
+              <option value="3">3. Khám lâm sàng (Clinical)</option>
+              <option value="4">4. Cận lâm sàng (Paraclinical)</option>
+              <option value="5">5. Kết luận (Conclusion)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-signer">Người ký hiệu:</label>
+            <select id="filter-signer">
+              <option value="all">Tất cả (S01–S06)</option>
+              <option value="S01">S01 (Train)</option>
+              <option value="S02">S02 (Train)</option>
+              <option value="S03">S03 (Train • Tay trái)</option>
+              <option value="S04">S04 (Train)</option>
+              <option value="S05">S05 (Val)</option>
+              <option value="S06">S06 (Test)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="filter-nmm-only">
+              <span>Chỉ hiện mẫu có NMM (biểu cảm mặt/đầu)</span>
+            </label>
+          </div>
+          <div class="filter-count" id="sample-count"></div>
+        </div>
+
+        <div class="explorer-layout">
+          <!-- Left: Sample Picker List -->
+          <aside class="sample-list" id="sample-list" aria-label="Danh sách mẫu dữ liệu"></aside>
+
+          <!-- Right: Synchronized Stage -->
+          <div class="stage-card">
+            <div class="stage-header">
+              <div>
+                <div class="stage-tags" id="stage-tags"></div>
+                <h3 class="stage-sentence" id="stage-sentence">Đang tải mẫu...</h3>
+                <p class="stage-highlight" id="stage-highlight"></p>
+              </div>
+              <div class="stage-meta-right" id="stage-meta-right"></div>
+            </div>
+
+            <!-- 3 synchronized visual views -->
+            <div class="media-grid">
+              <div class="media-box">
+                <div class="media-label">
+                  <span>Camera Thẳng (Frontal View • 0°)</span>
+                  <span class="media-badge" id="badge-front">1080p→480p • 30fps</span>
+                </div>
+                <div class="video-wrap">
+                  <video id="video-front" playsinline muted preload="metadata"></video>
+                </div>
+              </div>
+
+              <div class="media-box">
+                <div class="media-label">
+                  <span>Camera Nghiêng (Lateral View • 90°)</span>
+                  <span class="media-badge">Đồng bộ thời gian</span>
+                </div>
+                <div class="video-wrap">
+                  <video id="video-side" playsinline muted preload="metadata"></video>
+                </div>
+              </div>
+
+              <div class="media-box">
+                <div class="media-label">
+                  <span>Keypoints 3D MediaPipe (137 điểm)</span>
+                  <div class="skel-view-toggle">
+                    <button type="button" class="mini-btn active" id="btn-skel-front">Góc thẳng</button>
+                    <button type="button" class="mini-btn" id="btn-skel-side">Góc nghiêng</button>
+                  </div>
+                </div>
+                <div class="canvas-wrap">
+                  <canvas id="skeleton-canvas" width="480" height="480"></canvas>
+                  <div class="canvas-overlay-gloss" id="canvas-active-gloss"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Unified Controls -->
+            <div class="controls-bar">
+              <div class="controls-left">
+                <button type="button" class="btn btn-primary" id="btn-play">▶ Phát đồng bộ</button>
+                <button type="button" class="btn btn-secondary" id="btn-restart">↺ Đầu clip</button>
+                <div class="speed-group" aria-label="Tốc độ phát">
+                  <button type="button" class="speed-btn" data-speed="0.5">0.5×</button>
+                  <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+                  <button type="button" class="speed-btn active" data-speed="1">1.0×</button>
+                </div>
+              </div>
+              <div class="scrubber-wrap">
+                <input type="range" id="scrubber" min="0" max="1000" value="0" aria-label="Thanh thời gian video">
+                <span class="time-readout" id="time-readout">0.00s / 0.00s • Frame 0 / 0</span>
+              </div>
+            </div>
+
+            <!-- Skeleton Layer Toggles -->
+            <div class="layer-bar">
+              <span class="layer-title">Lớp khung xương (137 landmarks):</span>
+              <label class="layer-chip chip-pose"><input type="checkbox" id="toggle-pose" checked> Body Pose (25)</label>
+              <label class="layer-chip chip-face"><input type="checkbox" id="toggle-face" checked> Face NMM (70)</label>
+              <label class="layer-chip chip-lhand"><input type="checkbox" id="toggle-lhand" checked> Tay trái (21)</label>
+              <label class="layer-chip chip-rhand"><input type="checkbox" id="toggle-rhand" checked> Tay phải (21)</label>
+            </div>
+
+            <!-- Interactive ELAN Timeline -->
+            <div class="elan-box">
+              <div class="elan-header">
+                <strong>Dòng thời gian nhãn Gloss (ELAN Temporal Alignment)</strong>
+                <span>Bấm vào từng thanh Gloss để nhảy trực tiếp tới mốc thời gian tương ứng</span>
+              </div>
+              <div class="timeline-track" id="timeline-track"></div>
+              <div class="timeline-ruler" id="timeline-ruler"></div>
+            </div>
+
+            <!-- Linguistic Breakdown -->
+            <div class="ling-grid">
+              <div class="ling-card">
+                <div class="ling-label">Câu Tiếng Việt (Translation Tier)</div>
+                <div class="ling-val" id="ling-vi"></div>
+              </div>
+              <div class="ling-card">
+                <div class="ling-label">Cấu trúc NNKH TP.HCM (HCMC Sign Order + NMM)</div>
+                <div class="ling-val" id="ling-hcmc"></div>
+              </div>
+              <div class="ling-card">
+                <div class="ling-label">Chuỗi Gloss chuẩn hóa (Manual Sign Tier)</div>
+                <div class="ling-val mono" id="ling-gloss"></div>
+              </div>
+            </div>
+
+            <details class="raw-drawer">
+              <summary>Xem tệp nhãn ELAN thô (.txt) & thông số tệp .npy</summary>
+              <pre id="raw-elan-text"></pre>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DATA PIPELINE & SPLIT PROTOCOL -->
+    <section id="pipeline" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Quy trình Xây dựng & Giao thức Đánh giá (Pipeline & Protocol)</h2>
+            <p>Quy trình 5 bước chuẩn hóa chặt chẽ từ xây dựng kịch bản y khoa đến trích xuất đặc trưng bất biến người ký hiệu.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-grid">
+          <div class="pipe-step">
+            <div class="pipe-num">01</div>
+            <h4>Biên soạn 300 câu Y khoa</h4>
+            <p>Bám sát Thông tư 32/2023/TT-BYT qua 5 giai đoạn khám; sinh ứng viên bằng LLM, rà soát và thẩm định y khoa bởi bác sĩ <strong>BV Đa khoa Tân Hưng</strong>.</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">02</div>
+            <h4>Chuyển ngữ Gloss (CED)</h4>
+            <p>Hai thông dịch viên <strong>CED</strong> độc lập chuyển ngữ sang cấu trúc NNKH TP.HCM (đảo trật tự, ghép từ, lược hư từ, ghi chú NMM trên 82 câu).</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">03</div>
+            <h4>Ghi hình Studio Đa góc</h4>
+            <p>6 người Điếc (S01–S06) trong phòng phông xanh với 2 máy <strong>DJI Osmo Pocket 3</strong> (0° thẳng + 90° nghiêng), 1080×1080, 30 fps. 700/9,100 clip lỗi được loại & quay lại.</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">04</div>
+            <h4>Gán nhãn ELAN (~112.5 giờ)</h4>
+            <p>300 file chuẩn S01 (15 giờ cùng CED, ~3 phút/clip) + 3,900 clip còn lại (~97.5 giờ, ~1.5 phút/clip) gán biên thời gian chính xác từng mili-giây trên 2 tầng Gloss &amp; Text, đồng bộ sang góc nghiêng.</p>
+          </div>
+          <div class="pipe-step">
+            <div class="pipe-num">05</div>
+            <h4>Keypoints 3D & Vận tốc</h4>
+            <p>MediaPipe Holistic 137 điểm (411 chiều) chuẩn hóa theo trung điểm & độ rộng vai, ghép đạo hàm bậc 1 (vận tốc Δt = kp_t − kp_{t−1}) → vector <strong>822 chiều/frame</strong>.</p>
+          </div>
+        </div>
+
+        <!-- Split Visual -->
+        <div class="split-panel">
+          <h3>Giao thức Chia tập Độc lập Người ký hiệu (Signer-Independent Split — 0% chồng lấp)</h3>
+          <p class="split-desc">
+            Cả 300 câu đều xuất hiện ở mọi phân tập nhằm đánh giá chính xác khả năng <strong>tổng quát hóa sang người ký hiệu mới (Cross-Signer Generalization)</strong>.
+            Ngoài chia tập cố định bên dưới, nghiên cứu còn thực hiện <strong>6-Fold LOSO</strong> (lần lượt giữ từng người S01–S06 làm tập Test).
+          </p>
+          <div class="split-bar">
+            <div class="split-seg seg-train">
+              <strong>Train: S01 – S04 (4 người × 3 lần)</strong>
+              <span>7,200 video (85.7%) • 3,600 F + 3,600 S</span>
+            </div>
+            <div class="split-seg seg-val">
+              <strong>Val: S05</strong>
+              <span>600 (7.1%)</span>
+            </div>
+            <div class="split-seg seg-test">
+              <strong>Test: S06</strong>
+              <span>600 (7.1%)</span>
+            </div>
+          </div>
+          <div class="signer-chips">
+            <span class="signer-chip"><strong>S01</strong> Train • 3 lần • Tay phải</span>
+            <span class="signer-chip"><strong>S02</strong> Train • 3 lần • Tay phải</span>
+            <span class="signer-chip chip-left"><strong>S03</strong> Train • 3 lần • Thuận tay trái</span>
+            <span class="signer-chip"><strong>S04</strong> Train • 3 lần • Tay phải</span>
+            <span class="signer-chip chip-val"><strong>S05</strong> Val • 1 lần • Tay phải</span>
+            <span class="signer-chip chip-test"><strong>S06</strong> Test • 1 lần • Tay phải</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CORPUS STATISTICS & DATASET COMPARISON -->
+    <section id="statistics" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Thống kê Bộ dữ liệu & So sánh (Tables 1, 2, 4, 5)</h2>
+            <p>Phân bố 300 câu theo 5 giai đoạn khám, loại câu, biểu cảm phi thủ công (NMM) và vị thế của VSL-GH so với các bộ dữ liệu trong nước & quốc tế.</p>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Phân bố 300 câu theo 5 Giai đoạn Khám (Table 4)</h3>
+            <div id="chart-phases" class="svg-chart-host"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Phân bố Loại câu & Biểu cảm phi thủ công NMM</h3>
+            <div id="chart-types-nmm" class="svg-chart-host"></div>
+          </div>
+        </div>
+
+        <div class="tables-grid">
+          <div class="table-card">
+            <h3>So sánh các bộ dữ liệu Ngôn ngữ Ký hiệu Việt Nam (Table 2)</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Bộ dữ liệu</th>
+                    <th>Cấp độ</th>
+                    <th>Từ / Câu</th>
+                    <th>Số Video</th>
+                    <th>Đa góc</th>
+                    <th>Gloss</th>
+                    <th>Keypoints</th>
+                    <th>Biến thể</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>VSL Alphabet (Vu et al., 2025)</td>
+                    <td>Chữ cái</td>
+                    <td>25</td>
+                    <td>875</td>
+                    <td class="no">×</td>
+                    <td class="no">×</td>
+                    <td class="yes">✓</td>
+                    <td>Không rõ</td>
+                  </tr>
+                  <tr>
+                    <td>ViSL One-shot (Dang &amp; Bessmertny, 2024)</td>
+                    <td>Từ đơn</td>
+                    <td>4,364</td>
+                    <td>436,400</td>
+                    <td class="no">×</td>
+                    <td class="no">×</td>
+                    <td class="yes">✓</td>
+                    <td>Không rõ</td>
+                  </tr>
+                  <tr>
+                    <td>Multi-VSL (Dinh et al., 2025)</td>
+                    <td>Từ đơn</td>
+                    <td>1,000</td>
+                    <td>84,764</td>
+                    <td class="yes">✓</td>
+                    <td class="yes">✓</td>
+                    <td class="yes">✓</td>
+                    <td>Không rõ</td>
+                  </tr>
+                  <tr class="row-highlight">
+                    <td><strong>VSL-GH (Ours)</strong></td>
+                    <td><strong>Câu liên tục</strong></td>
+                    <td><strong>300 câu</strong></td>
+                    <td><strong>8,400</strong></td>
+                    <td class="yes"><strong>✓</strong></td>
+                    <td class="yes"><strong>✓</strong></td>
+                    <td class="yes"><strong>✓</strong></td>
+                    <td><strong>TP.HCM</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <h3>Thống kê Chi tiết VSL-GH (Table 5)</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Thuộc tính</th>
+                    <th>Train (S01–S04)</th>
+                    <th>Val (S05)</th>
+                    <th>Test (S06)</th>
+                    <th>Tổng cộng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Tổng số video</td><td>7,200</td><td>600</td><td>600</td><td><strong>8,400</strong></td></tr>
+                  <tr><td>Góc thẳng / Góc nghiêng</td><td>3,600 / 3,600</td><td>300 / 300</td><td>300 / 300</td><td><strong>4,200 / 4,200</strong></td></tr>
+                  <tr><td>Trung bình số frame / video</td><td colspan="3">Độ phân giải 1080×1080, 30 fps</td><td><strong>107.9 (55–151)</strong></td></tr>
+                  <tr><td>Số câu giao tiếp</td><td>300</td><td>300</td><td>300</td><td><strong>300 (300 câu riêng biệt)</strong></td></tr>
+                  <tr><td>Word tokens / duy nhất</td><td colspan="3">Trung bình 6.2 từ/câu (3–13)</td><td><strong>1,861 / 440</strong></td></tr>
+                  <tr><td>Gloss tokens / duy nhất</td><td colspan="3">Trung bình 3.97 gloss/câu (2–8)</td><td><strong>1,190 / 372</strong></td></tr>
+                  <tr><td>Số người ký hiệu</td><td>4</td><td>1</td><td>1</td><td><strong>6 (5 nam, 1 nữ)</strong></td></tr>
+                  <tr><td>3D Keypoints (137 tổng)</td><td colspan="3">MediaPipe Holistic (chuẩn hóa theo vai)</td><td><strong>25 Pose / 70 Face / 42 Hands</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 300-SENTENCE CORPUS BROWSER -->
+    <section id="corpus" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Tra cứu Toàn bộ 300 Câu trong VSL-GH (Corpus Browser)</h2>
+            <p>Tìm kiếm nhanh câu tiếng Việt, cấu trúc NNKH TP.HCM, chuỗi Gloss và ghi chú NMM theo từng giai đoạn khám.</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="filter-group filter-grow">
+            <label for="corpus-search">Tìm kiếm:</label>
+            <input type="search" id="corpus-search" placeholder="Nhập từ tiếng Việt, gloss (vd: HUYẾT-ÁP), mã câu (SENT088)..." maxlength="100">
+          </div>
+          <div class="filter-group">
+            <label for="corpus-phase">Giai đoạn:</label>
+            <select id="corpus-phase">
+              <option value="all">Tất cả (300)</option>
+              <option value="1">1. Đăng ký khám (68)</option>
+              <option value="2">2. Khám thể lực (32)</option>
+              <option value="3">3. Khám lâm sàng (130)</option>
+              <option value="4">4. Cận lâm sàng (40)</option>
+              <option value="5">5. Kết luận (30)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="corpus-type">Loại câu:</label>
+            <select id="corpus-type">
+              <option value="all">Tất cả loại câu</option>
+              <option value="Declarative">Trần thuật (175)</option>
+              <option value="Interrogative">Nghi vấn (109)</option>
+              <option value="Exclamatory">Cảm thán (16)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="corpus-nmm-only">
+              <span>Chỉ câu có NMM</span>
+            </label>
+          </div>
+          <div class="filter-count" id="corpus-count"></div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-scroll corpus-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã câu</th>
+                  <th>Giai đoạn</th>
+                  <th>Câu Tiếng Việt</th>
+                  <th>NNKH TP.HCM (Kèm ghi chú NMM)</th>
+                  <th>Chuỗi Gloss</th>
+                  <th>Loại</th>
+                </tr>
+              </thead>
+              <tbody id="corpus-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. BENCHMARK RESULTS (TABLES 6, 7, 8, 10) -->
+    <section id="benchmarks" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Tóm tắt Kết quả Thực nghiệm (Tables 6, 7, 8 &amp; 10)</h2>
+            <p>Tất cả mô hình dùng chung Transformer Decoder 6 lớp, đánh giá trung bình ± độ lệch chuẩn trên 5 seed ngẫu nhiên.</p>
+          </div>
+        </div>
+
+        <div class="tab-bar" role="tablist" aria-label="Chọn bảng kết quả">
+          <button type="button" class="tab-btn active" data-tab="t6" role="tab" aria-selected="true">Bảng 6: So sánh Kiến trúc</button>
+          <button type="button" class="tab-btn" data-tab="t7" role="tab" aria-selected="false">Bảng 7: Nghiên cứu Triệt tiêu (Ablation)</button>
+          <button type="button" class="tab-btn" data-tab="t8" role="tab" aria-selected="false">Bảng 8: Kiểm chứng chéo LOSO (6-Fold)</button>
+          <button type="button" class="tab-btn" data-tab="t10" role="tab" aria-selected="false">Bảng 10: Mở rộng Dữ liệu 5×</button>
+        </div>
+
+        <div class="table-card" id="benchmark-panel"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>VSL-GH Dataset Showcase</strong> — The Saigon International University (SIU) • Hợp tác cùng CED &amp; Bệnh viện Đa khoa Tân Hưng.
+      </div>
+      <div>Phục vụ trình bày nghiên cứu học thuật • Toàn bộ mẫu hiển thị lấy trực tiếp từ kho dữ liệu VSL-GH.</div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

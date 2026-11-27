@@ -1,0 +1,650 @@
+[
+  {
+    "id": "SENT001_S01_R01_F",
+    "side_id": "SENT001_S01_R01_S",
+    "sentence_id": "SENT001",
+    "signer_id": "S01",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 3 (#1) — Đăng ký khám cơ bản",
+    "vietnamese": "Tôi muốn đăng ký khám sức khỏe.",
+    "hcmc_sign": "Tôi + đăng ký + khám + sức khỏe + muốn",
+    "gloss_sequence": "TÔI / ĐĂNG-KÝ / KHÁM / SỨC-KHỎE / MUỐN",
+    "phase_id": 1,
+    "phase_en": "Registration",
+    "phase_vi": "Đăng ký khám",
+    "sentence_type": "Declarative",
+    "nmm_note": "",
+    "duration_sec": 4.77,
+    "num_frames": 143,
+    "fps": 30,
+    "video_front": "media/videos/SENT001_S01_R01_F.mp4",
+    "video_side": "media/videos/SENT001_S01_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT001_S01_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.0,
+        "end_sec": 1.24,
+        "start_frame": 0,
+        "end_frame": 37
+      },
+      {
+        "gloss": "ĐĂNG-KÝ",
+        "start_sec": 1.24,
+        "end_sec": 2.18,
+        "start_frame": 37,
+        "end_frame": 65
+      },
+      {
+        "gloss": "KHÁM",
+        "start_sec": 2.18,
+        "end_sec": 2.89,
+        "start_frame": 65,
+        "end_frame": 87
+      },
+      {
+        "gloss": "SỨC-KHỎE",
+        "start_sec": 2.89,
+        "end_sec": 3.73,
+        "start_frame": 87,
+        "end_frame": 112
+      },
+      {
+        "gloss": "MUỐN",
+        "start_sec": 3.73,
+        "end_sec": 4.37,
+        "start_frame": 112,
+        "end_frame": 131
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.000\t00:00:01.240\tTÔI\nGloss\t\t00:00:01.240\t00:00:02.180\tĐĂNG-KÝ\nGloss\t\t00:00:02.180\t00:00:02.890\tKHÁM\nGloss\t\t00:00:02.890\t00:00:03.730\tSỨC-KHỎE\nGloss\t\t00:00:03.730\t00:00:04.370\tMUỐN\nTranslation\t\t00:00:00.000\t00:00:04.380\tTôi muốn đăng ký khám sức khỏe.\n"
+  },
+  {
+    "id": "SENT033_S02_R01_F",
+    "side_id": "SENT033_S02_R01_S",
+    "sentence_id": "SENT033",
+    "signer_id": "S02",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 3 (#2) — Câu phủ định kèm NMM lắc đầu",
+    "vietnamese": "Tôi chưa hẹn trước.",
+    "hcmc_sign": "Tôi + hẹn  + trước + chưa  (mặt lắc đầu)",
+    "gloss_sequence": "TÔI / HẸN / TRƯỚC / CHƯA",
+    "phase_id": 1,
+    "phase_en": "Registration",
+    "phase_vi": "Đăng ký khám",
+    "sentence_type": "Declarative",
+    "nmm_note": "mặt lắc đầu",
+    "duration_sec": 3.9,
+    "num_frames": 117,
+    "fps": 30,
+    "video_front": "media/videos/SENT033_S02_R01_F.mp4",
+    "video_side": "media/videos/SENT033_S02_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT033_S02_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.86,
+        "start_frame": 0,
+        "end_frame": 26
+      },
+      {
+        "gloss": "HẸN",
+        "start_sec": 0.86,
+        "end_sec": 1.43,
+        "start_frame": 26,
+        "end_frame": 43
+      },
+      {
+        "gloss": "TRƯỚC",
+        "start_sec": 1.43,
+        "end_sec": 1.9,
+        "start_frame": 43,
+        "end_frame": 57
+      },
+      {
+        "gloss": "CHƯA",
+        "start_sec": 1.9,
+        "end_sec": 3.0,
+        "start_frame": 57,
+        "end_frame": 90
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.860\tTÔI\nGloss\t\t00:00:00.860\t00:00:01.430\tHẸN\nGloss\t\t00:00:01.430\t00:00:01.900\tTRƯỚC\nGloss\t\t00:00:01.900\t00:00:03.000\tCHƯA\nTranslation\t\t00:00:00.000\t00:00:03.000\tTôi chưa hẹn trước.\n"
+  },
+  {
+    "id": "SENT039_S03_R01_F",
+    "side_id": "SENT039_S03_R01_S",
+    "sentence_id": "SENT039",
+    "signer_id": "S03",
+    "split": "train",
+    "handedness": "Tay trái (Left)",
+    "highlight": "Ví dụ Bảng 9 — Người ký hiệu thuận tay trái (S03)",
+    "vietnamese": "Khi nào thì tới lượt tôi?",
+    "hcmc_sign": "Tôi + lượt + khi nào ?",
+    "gloss_sequence": "TÔI / LƯỢT / KHI-NÀO",
+    "phase_id": 1,
+    "phase_en": "Registration",
+    "phase_vi": "Đăng ký khám",
+    "sentence_type": "Interrogative",
+    "nmm_note": "",
+    "duration_sec": 4.3,
+    "num_frames": 129,
+    "fps": 30,
+    "video_front": "media/videos/SENT039_S03_R01_F.mp4",
+    "video_side": "media/videos/SENT039_S03_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT039_S03_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 1.44,
+        "start_frame": 0,
+        "end_frame": 43
+      },
+      {
+        "gloss": "LƯỢT",
+        "start_sec": 1.44,
+        "end_sec": 2.45,
+        "start_frame": 43,
+        "end_frame": 74
+      },
+      {
+        "gloss": "KHI-NÀO",
+        "start_sec": 2.45,
+        "end_sec": 3.52,
+        "start_frame": 74,
+        "end_frame": 106
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:01.440\tTÔI\nGloss\t\t00:00:01.440\t00:00:02.450\tLƯỢT\nGloss\t\t00:00:02.450\t00:00:03.520\tKHI-NÀO\nTranslation\t\t00:00:00.000\t00:00:03.520\tKhi nào thì tới lượt tôi?\n"
+  },
+  {
+    "id": "SENT088_S04_R01_F",
+    "side_id": "SENT088_S04_R01_S",
+    "sentence_id": "SENT088",
+    "signer_id": "S04",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 3 (#3) — Câu hỏi Có–Không (Huyết áp)",
+    "vietnamese": "Huyết áp của tôi có bình thường không?",
+    "hcmc_sign": "Tôi + huyết áp + bình thường + có không ?",
+    "gloss_sequence": "TÔI / HUYẾT-ÁP / BÌNH-THƯỜNG / CÓ-KHÔNG",
+    "phase_id": 2,
+    "phase_en": "Physical Examination",
+    "phase_vi": "Khám thể lực",
+    "sentence_type": "Interrogative",
+    "nmm_note": "",
+    "duration_sec": 3.47,
+    "num_frames": 104,
+    "fps": 30,
+    "video_front": "media/videos/SENT088_S04_R01_F.mp4",
+    "video_side": "media/videos/SENT088_S04_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT088_S04_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.66,
+        "start_frame": 0,
+        "end_frame": 20
+      },
+      {
+        "gloss": "HUYẾT-ÁP",
+        "start_sec": 0.66,
+        "end_sec": 1.64,
+        "start_frame": 20,
+        "end_frame": 49
+      },
+      {
+        "gloss": "BÌNH-THƯỜNG",
+        "start_sec": 1.64,
+        "end_sec": 2.31,
+        "start_frame": 49,
+        "end_frame": 69
+      },
+      {
+        "gloss": "CÓ-KHÔNG",
+        "start_sec": 2.31,
+        "end_sec": 3.41,
+        "start_frame": 69,
+        "end_frame": 102
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.660\tTÔI\nGloss\t\t00:00:00.660\t00:00:01.640\tHUYẾT-ÁP\nGloss\t\t00:00:01.640\t00:00:02.310\tBÌNH-THƯỜNG\nGloss\t\t00:00:02.310\t00:00:03.410\tCÓ-KHÔNG\nTranslation\t\t00:00:00.000\t00:00:03.410\tHuyết áp của tôi có bình thường không?\n"
+  },
+  {
+    "id": "SENT085_S05_R01_F",
+    "side_id": "SENT085_S05_R01_S",
+    "sentence_id": "SENT085",
+    "signer_id": "S05",
+    "split": "val",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Tập Validation (S05) — Khám thể lực",
+    "vietnamese": "Tôi có cần nín thở không?",
+    "hcmc_sign": "Tôi + nín thở+ cần không ?",
+    "gloss_sequence": "TÔI / NÍN-THỞ / CẦN-KHÔNG",
+    "phase_id": 2,
+    "phase_en": "Physical Examination",
+    "phase_vi": "Khám thể lực",
+    "sentence_type": "Interrogative",
+    "nmm_note": "",
+    "duration_sec": 3.17,
+    "num_frames": 95,
+    "fps": 30,
+    "video_front": "media/videos/SENT085_S05_R01_F.mp4",
+    "video_side": "media/videos/SENT085_S05_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT085_S05_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.9,
+        "start_frame": 0,
+        "end_frame": 27
+      },
+      {
+        "gloss": "NÍN-THỞ",
+        "start_sec": 0.9,
+        "end_sec": 1.83,
+        "start_frame": 27,
+        "end_frame": 55
+      },
+      {
+        "gloss": "CẦN-KHÔNG",
+        "start_sec": 1.83,
+        "end_sec": 2.71,
+        "start_frame": 55,
+        "end_frame": 81
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.900\tTÔI\nGloss\t\t00:00:00.900\t00:00:01.830\tNÍN-THỞ\nGloss\t\t00:00:01.830\t00:00:02.710\tCẦN-KHÔNG\nTranslation\t\t00:00:00.000\t00:00:02.710\tTôi có cần nín thở không?\n"
+  },
+  {
+    "id": "SENT101_S06_R01_F",
+    "side_id": "SENT101_S06_R01_S",
+    "sentence_id": "SENT101",
+    "signer_id": "S06",
+    "split": "test",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 3 (#4) — Tập Test (S06) kèm NMM nhăn mặt",
+    "vietnamese": "Tôi bị đau đầu.",
+    "hcmc_sign": "Tôi + đầu đau (mặt nhăn)",
+    "gloss_sequence": "TÔI / ĐẦU-ĐAU",
+    "phase_id": 3,
+    "phase_en": "Clinical Examination",
+    "phase_vi": "Khám lâm sàng",
+    "sentence_type": "Declarative",
+    "nmm_note": "mặt nhăn",
+    "duration_sec": 2.33,
+    "num_frames": 70,
+    "fps": 30,
+    "video_front": "media/videos/SENT101_S06_R01_F.mp4",
+    "video_side": "media/videos/SENT101_S06_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT101_S06_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.59,
+        "start_frame": 0,
+        "end_frame": 18
+      },
+      {
+        "gloss": "ĐẦU-ĐAU",
+        "start_sec": 0.59,
+        "end_sec": 2.044,
+        "start_frame": 18,
+        "end_frame": 61
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.590\tTÔI\nGloss\t\t00:00:00.590\t00:00:02.044\tĐẦU-ĐAU\nTranslation\t\t00:00:00.000\t00:00:02.044\tTôi bị đau đầu.\n"
+  },
+  {
+    "id": "SENT060_S01_R01_F",
+    "side_id": "SENT060_S01_R01_S",
+    "sentence_id": "SENT060",
+    "signer_id": "S01",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Câu cảm thán kèm biểu cảm khuôn mặt (NMM)",
+    "vietnamese": "Tôi bị lỡ mất số thứ tự rồi!",
+    "hcmc_sign": "Tôi + số + thứ tự+ lỡ mất (mặt gật đầu)",
+    "gloss_sequence": "TÔI / SỐ / THỨ-TỰ / LỠ-MẤT",
+    "phase_id": 1,
+    "phase_en": "Registration",
+    "phase_vi": "Đăng ký khám",
+    "sentence_type": "Exclamatory",
+    "nmm_note": "mặt gật đầu",
+    "duration_sec": 3.4,
+    "num_frames": 102,
+    "fps": 30,
+    "video_front": "media/videos/SENT060_S01_R01_F.mp4",
+    "video_side": "media/videos/SENT060_S01_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT060_S01_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.88,
+        "start_frame": 0,
+        "end_frame": 26
+      },
+      {
+        "gloss": "SỐ",
+        "start_sec": 0.88,
+        "end_sec": 1.3,
+        "start_frame": 26,
+        "end_frame": 39
+      },
+      {
+        "gloss": "THỨ-TỰ",
+        "start_sec": 1.3,
+        "end_sec": 1.91,
+        "start_frame": 39,
+        "end_frame": 57
+      },
+      {
+        "gloss": "LỠ-MẤT",
+        "start_sec": 1.91,
+        "end_sec": 3.24,
+        "start_frame": 57,
+        "end_frame": 97
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.880\tTÔI\nGloss\t\t00:00:00.880\t00:00:01.300\tSỐ\nGloss\t\t00:00:01.300\t00:00:01.910\tTHỨ-TỰ\nGloss\t\t00:00:01.910\t00:00:03.240\tLỠ-MẤT\nTranslation\t\t00:00:00.000\t00:00:03.240\tTôi bị lỡ mất số thứ tự rồi!\n"
+  },
+  {
+    "id": "SENT175_S06_R01_F",
+    "side_id": "SENT175_S06_R01_S",
+    "sentence_id": "SENT175",
+    "signer_id": "S06",
+    "split": "test",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 9 (✓ Khớp chính xác) — Câu lâm sàng dài 6 gloss",
+    "vietnamese": "Bác sĩ hỏi gia đình tôi có ai bị bệnh này không hả?",
+    "hcmc_sign": "Bác sĩ + hỏi + gia đình + tôi + bệnh gì + không ?",
+    "gloss_sequence": "BÁC-SĨ / HỎI / GIA-ĐÌNH / TÔI / BỆNH-GÌ / KHÔNG",
+    "phase_id": 3,
+    "phase_en": "Clinical Examination",
+    "phase_vi": "Khám lâm sàng",
+    "sentence_type": "Interrogative",
+    "nmm_note": "",
+    "duration_sec": 4.57,
+    "num_frames": 137,
+    "fps": 30,
+    "video_front": "media/videos/SENT175_S06_R01_F.mp4",
+    "video_side": "media/videos/SENT175_S06_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT175_S06_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "BÁC-SĨ",
+        "start_sec": 0.01,
+        "end_sec": 0.67,
+        "start_frame": 0,
+        "end_frame": 20
+      },
+      {
+        "gloss": "HỎI",
+        "start_sec": 0.67,
+        "end_sec": 1.4,
+        "start_frame": 20,
+        "end_frame": 42
+      },
+      {
+        "gloss": "GIA-ĐÌNH",
+        "start_sec": 1.4,
+        "end_sec": 2.09,
+        "start_frame": 42,
+        "end_frame": 63
+      },
+      {
+        "gloss": "TÔI",
+        "start_sec": 2.09,
+        "end_sec": 2.83,
+        "start_frame": 63,
+        "end_frame": 85
+      },
+      {
+        "gloss": "BỆNH-GÌ",
+        "start_sec": 2.83,
+        "end_sec": 3.41,
+        "start_frame": 85,
+        "end_frame": 102
+      },
+      {
+        "gloss": "KHÔNG",
+        "start_sec": 3.41,
+        "end_sec": 4.23,
+        "start_frame": 102,
+        "end_frame": 127
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.670\tBÁC-SĨ\nGloss\t\t00:00:00.670\t00:00:01.400\tHỎI\nGloss\t\t00:00:01.400\t00:00:02.090\tGIA-ĐÌNH\nGloss\t\t00:00:02.090\t00:00:02.830\tTÔI\nGloss\t\t00:00:02.830\t00:00:03.410\tBỆNH-GÌ\nGloss\t\t00:00:03.410\t00:00:04.230\tKHÔNG\nTranslation\t\t00:00:00.000\t00:00:04.220\tBác sĩ hỏi gia đình tôi có ai bị bệnh này không hả?\n"
+  },
+  {
+    "id": "SENT231_S02_R01_F",
+    "side_id": "SENT231_S02_R01_S",
+    "sentence_id": "SENT231",
+    "signer_id": "S02",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Giai đoạn Cận lâm sàng — Lấy mẫu xét nghiệm",
+    "vietnamese": "Tôi lấy máu xong rồi.",
+    "hcmc_sign": "Tôi + máu + lấy + rồi",
+    "gloss_sequence": "TÔI / MÁU / LẤY / RỒI",
+    "phase_id": 4,
+    "phase_en": "Paraclinical Examination",
+    "phase_vi": "Cận lâm sàng",
+    "sentence_type": "Declarative",
+    "nmm_note": "",
+    "duration_sec": 3.13,
+    "num_frames": 94,
+    "fps": 30,
+    "video_front": "media/videos/SENT231_S02_R01_F.mp4",
+    "video_side": "media/videos/SENT231_S02_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT231_S02_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 1.24,
+        "start_frame": 0,
+        "end_frame": 37
+      },
+      {
+        "gloss": "MÁU",
+        "start_sec": 1.24,
+        "end_sec": 1.88,
+        "start_frame": 37,
+        "end_frame": 56
+      },
+      {
+        "gloss": "LẤY",
+        "start_sec": 1.88,
+        "end_sec": 2.36,
+        "start_frame": 56,
+        "end_frame": 71
+      },
+      {
+        "gloss": "RỒI",
+        "start_sec": 2.36,
+        "end_sec": 3.07,
+        "start_frame": 71,
+        "end_frame": 92
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:01.240\tTÔI\nGloss\t\t00:00:01.240\t00:00:01.880\tMÁU\nGloss\t\t00:00:01.880\t00:00:02.360\tLẤY\nGloss\t\t00:00:02.360\t00:00:03.070\tRỒI\nTranslation\t\t00:00:00.000\t00:00:03.070\tTôi lấy máu xong rồi.\n"
+  },
+  {
+    "id": "SENT250_S03_R01_F",
+    "side_id": "SENT250_S03_R01_S",
+    "sentence_id": "SENT250",
+    "signer_id": "S03",
+    "split": "train",
+    "handedness": "Tay trái (Left)",
+    "highlight": "Giai đoạn Cận lâm sàng — Người ký hiệu tay trái (S03)",
+    "vietnamese": "Tôi sẽ nộp kết quả này cho bác sĩ.",
+    "hcmc_sign": "Tôi+ nộp + bác sĩ + kết quả",
+    "gloss_sequence": "TÔI / NỘP / BÁC-SĨ / KẾT-QUẢ",
+    "phase_id": 4,
+    "phase_en": "Paraclinical Examination",
+    "phase_vi": "Cận lâm sàng",
+    "sentence_type": "Declarative",
+    "nmm_note": "",
+    "duration_sec": 3.67,
+    "num_frames": 110,
+    "fps": 30,
+    "video_front": "media/videos/SENT250_S03_R01_F.mp4",
+    "video_side": "media/videos/SENT250_S03_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT250_S03_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.01,
+        "end_sec": 0.78,
+        "start_frame": 0,
+        "end_frame": 23
+      },
+      {
+        "gloss": "NỘP",
+        "start_sec": 0.78,
+        "end_sec": 1.4,
+        "start_frame": 23,
+        "end_frame": 42
+      },
+      {
+        "gloss": "BÁC-SĨ",
+        "start_sec": 1.4,
+        "end_sec": 2.07,
+        "start_frame": 42,
+        "end_frame": 62
+      },
+      {
+        "gloss": "KẾT-QUẢ",
+        "start_sec": 2.07,
+        "end_sec": 3.21,
+        "start_frame": 62,
+        "end_frame": 96
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.780\tTÔI\nGloss\t\t00:00:00.780\t00:00:01.400\tNỘP\nGloss\t\t00:00:01.400\t00:00:02.070\tBÁC-SĨ\nGloss\t\t00:00:02.070\t00:00:03.210\tKẾT-QUẢ\nTranslation\t\t00:00:00.000\t00:00:03.210\tTôi sẽ nộp kết quả này cho bác sĩ.\n"
+  },
+  {
+    "id": "SENT290_S05_R01_F",
+    "side_id": "SENT290_S05_R01_S",
+    "sentence_id": "SENT290",
+    "signer_id": "S05",
+    "split": "val",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Tập Validation (S05) — Kết luận kèm NMM mặt buồn",
+    "vietnamese": "Tôi xem kết quả mà không hiểu gì.",
+    "hcmc_sign": "Tôi +kết quả+ xem + không hiểu (mặt buồn)",
+    "gloss_sequence": "TÔI / KẾT QUẢ / XEM / KHÔNG-HIỂU",
+    "phase_id": 5,
+    "phase_en": "Conclusion",
+    "phase_vi": "Kết luận",
+    "sentence_type": "Declarative",
+    "nmm_note": "mặt buồn",
+    "duration_sec": 4.97,
+    "num_frames": 149,
+    "fps": 30,
+    "video_front": "media/videos/SENT290_S05_R01_F.mp4",
+    "video_side": "media/videos/SENT290_S05_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT290_S05_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "TÔI",
+        "start_sec": 0.0,
+        "end_sec": 0.589,
+        "start_frame": 0,
+        "end_frame": 18
+      },
+      {
+        "gloss": "KẾT-QUẢ",
+        "start_sec": 0.589,
+        "end_sec": 2.2,
+        "start_frame": 18,
+        "end_frame": 66
+      },
+      {
+        "gloss": "XEM",
+        "start_sec": 2.2,
+        "end_sec": 2.889,
+        "start_frame": 66,
+        "end_frame": 87
+      },
+      {
+        "gloss": "KHÔNG-HIỂU",
+        "start_sec": 2.889,
+        "end_sec": 4.267,
+        "start_frame": 87,
+        "end_frame": 128
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.000\t00:00:00.589\tTÔI\nGloss\t\t00:00:00.589\t00:00:02.200\tKẾT-QUẢ\nGloss\t\t00:00:02.200\t00:00:02.889\tXEM\nGloss\t\t00:00:02.889\t00:00:04.267\tKHÔNG-HIỂU\nTranslation\t\t00:00:00.000\t00:00:04.267\tTôi xem kết quả mà không hiểu gì.\n"
+  },
+  {
+    "id": "SENT294_S04_R01_F",
+    "side_id": "SENT294_S04_R01_S",
+    "sentence_id": "SENT294",
+    "signer_id": "S04",
+    "split": "train",
+    "handedness": "Tay phải (Right)",
+    "highlight": "Ví dụ Bảng 3 (#5) — Câu hỏi y khoa (Bệnh có lây không?)",
+    "vietnamese": "Bệnh này có lây không bác sĩ?",
+    "hcmc_sign": "Hỏi + bác sĩ + tôi + bệnh lây + có không ?",
+    "gloss_sequence": "HỎI / BÁC-SĨ / TÔI / BỆNH-LÂY / CÓ-KHÔNG",
+    "phase_id": 5,
+    "phase_en": "Conclusion",
+    "phase_vi": "Kết luận",
+    "sentence_type": "Interrogative",
+    "nmm_note": "",
+    "duration_sec": 3.0,
+    "num_frames": 90,
+    "fps": 30,
+    "video_front": "media/videos/SENT294_S04_R01_F.mp4",
+    "video_side": "media/videos/SENT294_S04_R01_S.mp4",
+    "keypoints_json": "media/keypoints/SENT294_S04_R01_F.json",
+    "timeline": [
+      {
+        "gloss": "HỎI",
+        "start_sec": 0.01,
+        "end_sec": 0.6,
+        "start_frame": 0,
+        "end_frame": 18
+      },
+      {
+        "gloss": "BÁC-SĨ",
+        "start_sec": 0.6,
+        "end_sec": 1.18,
+        "start_frame": 18,
+        "end_frame": 35
+      },
+      {
+        "gloss": "BỆNH",
+        "start_sec": 1.18,
+        "end_sec": 1.55,
+        "start_frame": 35,
+        "end_frame": 46
+      },
+      {
+        "gloss": "LÂY",
+        "start_sec": 1.55,
+        "end_sec": 2.01,
+        "start_frame": 46,
+        "end_frame": 60
+      },
+      {
+        "gloss": "CÓ-KHÔNG",
+        "start_sec": 2.01,
+        "end_sec": 2.6,
+        "start_frame": 60,
+        "end_frame": 78
+      }
+    ],
+    "raw_elan": "Gloss\t\t00:00:00.010\t00:00:00.600\tHỎI\nGloss\t\t00:00:00.600\t00:00:01.180\tBÁC-SĨ\nGloss\t\t00:00:01.180\t00:00:01.550\tBỆNH\nGloss\t\t00:00:01.550\t00:00:02.010\tLÂY\nGloss\t\t00:00:02.010\t00:00:02.600\tCÓ-KHÔNG\nTranslation\t\t00:00:00.000\t00:00:02.600\tBệnh này có lây không bác sĩ?\n"
+  }
+]

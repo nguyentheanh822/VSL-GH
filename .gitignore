@@ -15,6 +15,7 @@ data/videos/
 data/dataset_synthetic_5x.json
 *.npy
 *.mp4
+!docs/media/videos/*.mp4
 *.avi
 *.mov
 
